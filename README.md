@@ -1,5 +1,8 @@
 # @lujax/github-sdk
 
+[![npm version](https://img.shields.io/npm/v/@lujax/github-sdk.svg)](https://www.npmjs.com/package/@lujax/github-sdk)
+[![test coverage](https://img.shields.io/badge/test%20coverage-jest-blue.svg)](#testing-and-coverage)
+
 A TypeScript-first, ergonomic wrapper around the [GitHub REST API](https://docs.github.com/en/rest). Calls `api.github.com` directly using native `fetch` — no Octokit, no third-party HTTP library.
 
 - **Clean TypeScript domain types** — camelCase interfaces instead of raw snake_case API responses
@@ -120,6 +123,13 @@ Built into every request, with no configuration needed:
 - **Rate limiting** — proactively waits out the reset window when `x-ratelimit-remaining` hits 0, instead of letting requests fail with a 403
 - **Retries** — 3 attempts with 1s/2s/4s backoff on `5xx` and `429` responses
 - **ETag caching** — repeat `GET`s send `If-None-Match`; a `304` returns the cached body for free and doesn't count against your rate limit
+
+## Testing and coverage
+
+```bash
+npm test
+npm run test:coverage
+```
 
 ## Contributing
 
